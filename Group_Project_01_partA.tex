@@ -1,0 +1,134 @@
+% !TeX program = xelatex
+% Compile with: latexmk -xelatex Group_Project_01_partA.tex
+% Assignment 1 — Teaching Note
+% 本檔案只保留題目一。
+
+\documentclass[10pt,a4paper,fontset=none]{ctexart}
+
+\setCJKmainfont{Microsoft JhengHei}
+\setCJKsansfont{Microsoft JhengHei}
+\setCJKmonofont{Microsoft JhengHei}
+
+% Page layout and formatting required by the assignment
+\usepackage[margin=2.0cm]{geometry}
+\usepackage{setspace}
+\setstretch{1.2}
+\usepackage{microtype}
+
+% Mathematics and physics
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{physics}
+
+% Figures, tables, and links
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!60!black,
+  urlcolor=blue!60!black,
+  pdftitle={作業一：教學筆記}
+}
+
+% Useful notation
+\newcommand{\vect}[1]{\bm{#1}}
+\newcommand{\diff}{\,\mathrm{d}}
+\begin{document}
+
+\pagestyle{empty}
+
+% ============================================================================
+% 題目一：狄拉克 delta 作為廣義函數
+% ============================================================================
+\section{題目一：狄拉克 delta 作為廣義函數}
+
+\subsection{主要概念}
+Dirac Delta是用來描述存在有「無限小點源」的數學工具，其重要性在於積分後的結果。
+\subsection{為什麼需要狄拉克 delta？}
+考慮三維空間中的一個點電荷 $q$。在經典電磁學中，我們希望用電荷密度 $\rho(\vect{r})$ 描述它的位置與電量。若電荷分布在一個有限體積內，可以用普通函數表示：每一點都有一個有限的密度值，將密度對體積積分後得到總電荷。然而，理想點電荷集中在單一位置 $\vect{r}_0$，沒有任何有限體積可以容納它。
+
+我們仍希望這個密度具有兩個性質：除了 $\vect{r}_0$ 以外的地方沒有電荷，而對整個空間積分後必須得到 $q$。這表示我們需要一個在空間中局部化、但積分仍然有限的對象。狄拉克 delta 正是用來表達這種點源的工具。例如，點電荷的密度可形式化地寫成
+\begin{equation}
+  \rho(\vect{r}) = q\,\delta^{(3)}(\vect{r}-\vect{r}_0),
+\end{equation}
+其中 $\delta^{(3)}$ 是三維 delta。
+
+\subsubsection{具體情境：點源}
+上式的重點不只是「把電荷放在一個位置」，而是要讓它能放入守恆定律與場方程式中。例如，任意體積 $V$ 中的電荷可以寫成
+\begin{equation}
+  Q(V)=\int_V \rho(\vect{r})\,\dd^3 r.
+\end{equation}
+當 $V$ 包含 $\vect{r}_0$ 時，這個積分應該給出 $q$；當 $V$ 不包含 $\vect{r}_0$ 時，則應該給出零。於是，delta 的真正任務，是在積分或其他測試操作中精確地攜帶點源的資訊。
+
+\subsubsection{普通函數觀點的不足}
+如果只使用普通函數，會遇到矛盾：令函數在 $\vect{r}_0$ 以外處處為零，則它在單一點的值不會影響一般的體積積分；但若想讓單一點貢獻有限的總電荷，就必須把該點的函數值說成無限大。這樣的說法既不能形成一個普通的有限值函數，也沒有清楚定義「無限大」應如何參與微分、積分或方程式。
+
+因此，$\delta$ 不應被視為一個只在某一點取無限值的普通函數。較好的做法，是直接規定它對其他函數的作用方式。這正是廣義函數或分佈觀點的出發點。
+
+\subsection{狄拉克 delta 到底是什麼？}
+在分佈理論中，$\delta(x-x_0)$ 是一個作用在測試函數 $f(x)$ 上的線性泛函。測試函數通常取為足夠光滑、且具有適當衰減性質的函數；我們不需要先為 $\delta$ 指定每一個點的普通函數值，而是直接定義它的作用：
+
+\subsubsection{對測試函數的作用：抽樣性質}
+對適當的測試函數 $f$，狄拉克 delta 滿足抽樣性質
+\begin{equation}
+  \int_{-\infty}^{\infty} f(x)\,\delta(x-x_0)\diff{x}
+  = f(x_0).
+\end{equation}
+這個公式表示 $\delta(x-x_0)$ 會從 $f$ 中「取出」位置 $x_0$ 的值。它不是在說 $\delta$ 在 $x_0$ 有一個可以直接代入的無限函數值，而是在說：當 $\delta$ 作為積分中的分佈作用時，結果等於對測試函數進行抽樣。
+
+這個定義比「某點無限大、其他地方為零」更有用，原因是它直接說明了 $\delta$ 在計算中真正做的事情。只要知道被作用的函數與積分範圍，就可以判斷結果。例如，若 $x_0$ 位於積分區間 $[a,b]$ 的內部，則
+\begin{equation}
+  \int_a^b f(x)\,\delta(x-x_0)\diff{x}=f(x_0);
+\end{equation}
+若 $x_0$ 不在區間內，則結果為零。這種描述可以自然地延伸到多維空間，也可以和微分方程、傅立葉分析及格林函數結合。
+
+\subsubsection{直觀圖像的意義與限制}
+我們仍可以把 $\delta$ 想成一個越來越窄、但面積固定為一的尖峰。例如，取一族寬度為 $\varepsilon$ 的函數 $\delta_\varepsilon(x)$，使其集中在原點且滿足
+\begin{equation}
+  \int_{-\infty}^{\infty}\delta_\varepsilon(x)\diff{x}=1.
+\end{equation}
+當 $\varepsilon$ 趨近於零時，這族函數在分佈意義下可以趨近 $\delta(x)$。這個圖像有助於理解局部化與單位面積的概念，但它不能把 $\delta$ 還原成一個普通函數；真正有意義的極限，是它對測試函數積分後的極限。
+
+\subsection{重要實用性質：縮放}
+除了抽樣性質之外，縮放性質也很能顯示 delta 與普通函數的不同。對非零常數 $a$，有
+
+\begin{equation}
+  \delta(ax)=\frac{1}{\abs{a}}\delta(x).
+\end{equation}
+更一般地，若 $a\neq 0$，則
+\begin{equation}
+  \delta\bigl(a(x-x_0)\bigr)
+  =\frac{1}{\abs{a}}\delta(x-x_0).
+\end{equation}
+
+\subsubsection{數學意義}
+縮放 $x\mapsto ax$ 會改變座標的長度尺度。當 $|a|$ 變大時，函數的尖峰在 $x$ 軸上看起來會變窄；為了使總積分仍然保持不變，尖峰的總權重必須同時乘上 $1/|a|$。絕對值的出現，是因為變數變換的雅可比因子必須取正的尺度大小，不會因為 $a$ 的正負而改變積分權重。
+
+這個公式應理解為分佈的等式，而不是在某一點比較兩個「無限函數值」。對任意測試函數 $f$，令 $u=ax$，則
+\begin{equation}
+  \int_{-\infty}^{\infty}f(x)\delta(ax)\diff{x}
+  =\frac{1}{|a|}f(0),
+\end{equation}
+這正是右側 $\frac{1}{|a|}\delta(x)$ 作用在 $f$ 上的結果。
+
+\subsubsection{在數學或物理中的用途}
+縮放性質在把不同尺度的局部化源互相轉換時很有用。例如，若一個點源的座標用 $y=ax$ 表示，則源的集中程度會隨座標尺度改變，但其總強度不能因此改變。$1/|a|$ 正是補償座標變換所造成的長度尺度變化，使點源的總權重保持一致。
+
+\subsection{為什麼廣義函數觀點很重要？}
+若只把 $\delta$ 當成「某一點無限大」的奇怪函數，我們會漏掉它最重要的數學結構：$\delta$ 並不是靠逐點取值來使用，而是靠它對測試函數的作用來定義。這個觀點避免了直接操作「無限大乘以零」等沒有明確意義的表達，也使得積分、微分與變數變換可以在一致的框架下處理。
+
+\subsubsection{這個觀點帶來的可能性}
+在廣義函數的框架中，$\delta$ 可以表示點電荷、點質量、瞬時脈衝或邊界上的集中源。它也能作為微分方程的源項，並透過格林函數描述局部激發如何產生整個空間中的反應。更重要的是，分佈不只包含 $\delta$，還包含 $\delta$ 的導數等更廣泛的對象，因此許多原本看似不合法的微分操作可以被嚴格定義。
+
+分佈觀點也提醒我們，物理模型中的理想化不一定要對應到一個普通函數。點電荷是把有限尺寸的電荷分布取極限後得到的理想模型；只要所有計算都在分佈作用的意義下進行，它仍然可以與守恆律和場方程式一致地連接。
+
+\subsection{重點總結}
+狄拉克 delta 的價值，不在於它是一個「某點無限大」的特殊函數，而在於它能以分佈的方式對測試函數進行抽樣。這使我們能夠精確表示集中在一點的物理量，並在積分、微分與座標變換中一致地使用它。廣義函數觀點因此把一個直觀但模糊的物理圖像，轉化成可操作且可推廣的數學結構。
+
+\subsection*{參考資料}
+A. Papoulis, \textit{The Fourier Integral and Its Applications}, Appendix I。
+
+\end{document}

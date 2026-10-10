@@ -1,0 +1,31 @@
+\contentsline {section}{\numberline {1}Topic 1: The Dirac Delta as a Generalized Function}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Learning goal and conceptual roadmap}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Why do we need the Dirac delta?}{3}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}A concrete situation}{3}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}What is insufficient about ordinary functions?}{3}{subsubsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.3}What is the Dirac delta?}{3}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Action on test functions: the sampling property}{3}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}Interpretation and limitations of the informal picture}{3}{subsubsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.4}One useful property}{3}{subsection.1.4}%
+\contentsline {subsubsection}{\numberline {1.4.1}Statement of the property}{3}{subsubsection.1.4.1}%
+\contentsline {subsubsection}{\numberline {1.4.2}Mathematical meaning}{3}{subsubsection.1.4.2}%
+\contentsline {subsubsection}{\numberline {1.4.3}Use in mathematics or physics}{4}{subsubsection.1.4.3}%
+\contentsline {subsection}{\numberline {1.5}Why does the generalized-function viewpoint matter?}{4}{subsection.1.5}%
+\contentsline {subsubsection}{\numberline {1.5.1}What this viewpoint makes possible}{4}{subsubsection.1.5.1}%
+\contentsline {subsection}{\numberline {1.6}Takeaway}{4}{subsection.1.6}%
+\contentsline {section}{\numberline {2}Topic 2: Vector Fields and the Spirit of the Helmholtz Theorem}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Learning goal and conceptual roadmap}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Why are divergence and curl important?}{4}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Divergence: local source or sink information}{4}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Curl: local circulation information}{4}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Why one scalar quantity is not enough}{5}{subsubsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.3}The central idea of the Helmholtz theorem}{5}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Mathematical support}{5}{subsubsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.4}Why is it ``almost completely'' determined?}{5}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Remaining ambiguity}{5}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Role of boundary information}{5}{subsubsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.5}One boundary condition: Dirichlet or Neumann}{5}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}What information does it provide?}{5}{subsubsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.2}Relation to potential and Laplace problems}{5}{subsubsection.2.5.2}%
+\contentsline {subsubsection}{\numberline {2.5.3}Why does it affect uniqueness?}{5}{subsubsection.2.5.3}%
+\contentsline {subsection}{\numberline {2.6}Takeaway}{6}{subsection.2.6}%
